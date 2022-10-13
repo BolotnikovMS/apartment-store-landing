@@ -1,4 +1,33 @@
 const DATA = {
+	defaultQusetion: {
+		question: 'Какие у вас правоустанавливающие документы?',
+		answers: [
+			{
+				id: '0',
+				value: 'Договор купли-продажи',
+			},
+			{
+				id: '1',
+				value: 'Договор дарения',
+			},
+			{
+				id: '2',
+				value: 'Договор приватизации',
+			},
+			{
+				id: '3',
+				value: 'Справка ЖСК',
+			},
+			{
+				id: '4',
+				value: 'Свидетельство о праве на наследство',
+			},
+			{
+				id: '5',
+				value: 'Договор долевого участия',
+			}
+		]
+	},
   scenario: [
     {
       question:
@@ -458,7 +487,12 @@ const renderIndicator = (currentSteps, scenario) => {
 }
 
 const renderResult = () => {
-  let content = ''
+	let content = `
+		<div class="result__question">${DATA.defaultQusetion.question}</div>
+		<ul class="result__answers">
+			${DATA.defaultQusetion.answers[results.scenario].value}
+		</ul>
+	`
 
   indicator.innerHTML = 'Результаты опроса.'
 
