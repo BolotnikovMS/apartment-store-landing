@@ -28,7 +28,7 @@
           <a href="tel:+74958354711">+ 7 495 835 47 11</a>
         </div>
         <div class="header__btns">
-          <button class="header__btn">Перезвоните мне</button>
+          <button class="header__btn modal-open">Перезвоните мне</button>
         </div>
       </nav>
     </div>
@@ -150,8 +150,39 @@
 </footer>
 
 
+  <div class="modal">
+  <div class="container">
+    <div class="modal__content">
+      <div class="modal__header">
+        <h2 class="modal__title">Перезвоните мне</h2>
+        <button class="modal__close">&times;</button>
+      </div>
+      <div class="modal__body">
+        <form action="" class="contact-form">
+          <div class="form__wrap">
+            <label>
+              Номер телефона
+              <input type="tel" class="form__input" id="phone" name="phone" placeholder="Введите номер телефона">
+            </label>
+            <label>
+              Ваше имя
+              <input type="text" class="form__input" name="name" placeholder="Введите имя">
+            </label>
+            <div class="form__btns">
+              <button class="form__btn" type="submit">Отправить</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal__foter"></div>
+    </div>
+  </div>
+</div>
+
+
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="./js/jquery.maskedinput.min.js"></script>
   <script src="./js/main.js"></script>
 </body>
 </html>
