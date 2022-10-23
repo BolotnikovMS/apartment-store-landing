@@ -578,12 +578,7 @@ const renderIndicator = (currentSteps, scenario) => {
 }
 
 const renderResult = () => {
-	let content = `
-		<div class="result__question">${DATA.defaultQusetion.question}</div>
-		<ul class="result__answers">
-			${DATA.defaultQusetion.answers[results.scenario].value}
-		</ul>
-	`
+	let content = ''
 
 	indicator.innerHTML = 'Результаты опроса.'
 
@@ -591,21 +586,34 @@ const renderResult = () => {
 		return answers.map(answer => {
 				for (let key in results) {
 					if (answer.id == results[key]) {
-						return `<li class="result__answer">- ${answer.value}</li>`
+						return `<p class="result__answer">- ${answer.value}</p>`
 					}
 				}
 			})
 			.join('')
 	}
 
-	DATA.scenario[results.scenario].question.forEach(question => {
-		content += `
-      <div class="result__question"><p>${question.question}</p></div>
-      <ul class="result__answers">
-        ${getAnswers(question.answers)}
-      </ul>
-    `
-	})
+	content +=
+		`
+			<ol class="result">
+				<li class="result__question">
+					${DATA.defaultQusetion.question}
+					<p class="result__answer">- ${DATA.defaultQusetion.answers[results.scenario].value}</p>
+				</li>
+				${DATA.scenario[results.scenario].question.map(question => {
+					return (
+						`
+						<li class="result__question">
+							${question.question}
+							${getAnswers(question.answers)}
+						</li>
+					`
+					)
+				})
+				.join('')
+			}
+			</ol>
+		`
 
 	result.innerHTML = content
 }
